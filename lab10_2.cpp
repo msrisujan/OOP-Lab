@@ -68,7 +68,7 @@ void check_exp(string s)
         else if(precedence(s[i])!=-1 && precedence(s[i+1])!=-1)
             throw i;
     }
-    if(check_char(s.length()-1)!=1)
+    if(check_char(s[s.length()-1])!=1)
         throw (int)s.length()-1;
     else if(precedence(s[s.length()-1])!=-1)
         throw (int)s.length()-1;
