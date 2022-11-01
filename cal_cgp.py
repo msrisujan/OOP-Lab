@@ -101,13 +101,34 @@ def calculate_gpa():
     g2=grades.get(sub2_e.get(), -1)
     g3=grades.get(sub3_e.get(), -1)
     g4=grades.get(sub4_e.get(), -1)
-    if(g1==-1 or g2==-1 or g3==-1 or g4==-1):
-        gpa="Invalid Input"
+    if(len(name_e.get())==0):
+        gpa="Please Enter Name"
         credit1_l.configure(text="")
         credit2_l.configure(text="")
         credit3_l.configure(text="")
         credit4_l.configure(text="")
-        gpa_l.configure(text=gpa,bg="lightgreen",fg="red")
+        gpa_l.configure(text=gpa,fg="red")
+    elif(len(roll_e.get())==0):
+        gpa="Please Enter Roll.No"
+        credit1_l.configure(text="")
+        credit2_l.configure(text="")
+        credit3_l.configure(text="")
+        credit4_l.configure(text="")
+        gpa_l.configure(text=gpa,fg="red")
+    elif(len(reg_e.get())==0):
+        gpa="Please Enter Reg.No"
+        credit1_l.configure(text="")
+        credit2_l.configure(text="")
+        credit3_l.configure(text="")
+        credit4_l.configure(text="")
+        gpa_l.configure(text=gpa,fg="red")
+    elif(g1==-1 or g2==-1 or g3==-1 or g4==-1):
+        gpa="Please Give Correct Input"
+        credit1_l.configure(text="")
+        credit2_l.configure(text="")
+        credit3_l.configure(text="")
+        credit4_l.configure(text="")
+        gpa_l.configure(text=gpa,fg="red")
 
     else:
         c1=g1*4
