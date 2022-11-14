@@ -32,38 +32,37 @@ class dllist
         }
         void sort_insert(node* p)
         {
-                   if (head == NULL)
-        {
-            head = p;
-            tail = p;
+            if (head == NULL)
+            {
+                head = p;
+                tail = p;
+                return;
+            }
+            node *temp = this->head;
+            while (temp->data <= p->data && temp->next != NULL)
+            {
+                temp = temp->next;
+            }
+            if (temp->next == NULL && p->data >= temp->data)
+            {
+                temp->next = p;
+                p->prev = temp;
+                this->tail = p;
+            }
+            else if (temp == this->head)
+            {
+                this->head->prev = p;
+                p->next = this->head;
+                this->head = p;
+            }
+            else
+            {
+                p->prev = temp->prev;
+                p->next = temp;
+                p->prev->next = p;
+                temp->prev = p;
+            }
             return;
-        }
-        node *temp = this->head;
-        while (temp->data <= p->data && temp->next != NULL)
-        {
-            temp = temp->next;
-        }
-        if (temp->next == NULL && p->data >= temp->data)
-        {
-            temp->next = p;
-            p->prev = temp;
-            this->tail = p;
-        }
-        else if (temp == this->head)
-        {
-            this->head->prev = p;
-            p->next = this->head;
-            this->head = p;
-        }
-        else
-        {
-            p->prev = temp->prev;
-            p->next = temp;
-            p->prev->next = p;
-            temp->prev = p;
-        }
-        return;
-
         }
         void deletenode(int pos)
         {
