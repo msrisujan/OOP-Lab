@@ -67,40 +67,40 @@ class dllist
         void deletenode(int pos)
         {
             node *temp = this->head;
-        int i;
-        for (i = 1; i < pos && temp->next != NULL; i++)
-        {
-            temp = temp->next;
-        }
-        if (pos > i || pos < 1)
-        {
-            cout << "Position " << pos << " does not exist" << endl;
-            return;
-        }
-        if (this->tail == this->head)
-        {
-            delete this->head;
-            this->tail = this->head = NULL;
-            return;
-        }
-        if (temp->next == NULL)
-        {
-            tail = tail->prev;
-            delete (tail->next);
-            tail->next = NULL;
-        }
-        else if (temp == this->head)
-        {
-            head = head->next;
-            delete (head->prev);
-            head->prev = NULL;
-        }
-        else
-        {
-            temp->prev->next = temp->next;
-            temp->next->prev = temp->prev;
-            delete (temp);
-        }
+            int i;
+            for (i = 1; i < pos && temp->next != NULL; i++)
+            {
+                temp = temp->next;
+            }
+            if (pos > i || pos < 1)
+            {
+                cout << "Position " << pos << " does not exist" << endl;
+                return;
+            }
+            if (this->tail == this->head)
+            {
+                delete this->head;
+                this->tail = this->head = NULL;
+                return;
+            }
+            if (temp->next == NULL)
+            {
+                tail = tail->prev;
+                delete (tail->next);
+                tail->next = NULL;
+            }
+            else if (temp == this->head)
+            {
+                head = head->next;
+                delete (head->prev);
+                head->prev = NULL;
+            }
+            else
+            {
+                temp->prev->next = temp->next;
+                temp->next->prev = temp->prev;
+                delete (temp);
+            }
         }
         void display()
         {
